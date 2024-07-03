@@ -3,7 +3,7 @@ import axios from "axios";
 export const likePost = (id) => async (dispatch) => {
   try {
     dispatch({ type: "likeRequest" });
-    const { data } = await axios.get(`http://localhost:4000/api/post/${id}`, {
+    const { data } = await axios.get(`https://social-media-backend-b52h.onrender.com/api/post/${id}`, {
       withCredentials: true,
     });
     dispatch({ type: "likeSuccess", payload: data.message });
@@ -16,7 +16,7 @@ export const addCommentOnPost = (id, comment) => async (dispatch) => {
   try {
     dispatch({ type: "addCommentRequest" });
     const { data } = await axios.put(
-      `http://localhost:4000/api/post/comment/${id}`,
+      `https://social-media-backend-b52h.onrender.com/api/post/comment/${id}`,
       { comment }, {
         withCredentials: true,
       }
@@ -35,7 +35,7 @@ export const DeleteComment = (id, commentId) => async (dispatch) => {
     console.log("id, commentId===========>", id, commentId)
     dispatch({ type: "deleteCommentRequest" });
     const { data } = await axios.delete(
-      `http://localhost:4000/api/post/comment/${id}?commentId=${commentId}`, 
+      `https://social-media-backend-b52h.onrender.com/api/post/comment/${id}?commentId=${commentId}`, 
       {
         withCredentials: true,
       }
@@ -54,7 +54,7 @@ export const createNewPost = (image, caption) => async (dispatch) => {
   try {
     dispatch({ type: "newPostRequest" });
     const { data } = await axios.post(
-      "http://localhost:4000/api/post/upload",
+      "https://social-media-backend-b52h.onrender.com/api/post/upload",
       {
         image,
         caption,
@@ -72,7 +72,7 @@ export const updateCaption = (location, caption, id) => async (dispatch) => {
     dispatch({ type: "updateCaptionRequest" });
 
     const { data } = await axios.put(
-      `http://localhost:4000/api/post/${id}`,
+      `https://social-media-backend-b52h.onrender.com/api/post/${id}`,
       {
         caption,
         location,
@@ -93,7 +93,7 @@ export const deletePost = (id) => async (dispatch) => {
     dispatch({ type: "deletePostRequest" });
 
     const { data } = await axios.delete(
-      `http://localhost:4000/api/post/${id}`,
+      `https://social-media-backend-b52h.onrender.com/api/post/${id}`,
       { withCredentials: true }
     );
     dispatch({ type: "deletePostSuccess", payload: data.message });
@@ -110,7 +110,7 @@ export const updateProfile = (name, email, avatar) => async (dispatch) => {
     dispatch({ type: "updateProfileRequest" });
 
     const { data } = await axios.put(
-      `http://localhost:4000/api/update/profile`,
+      `https://social-media-backend-b52h.onrender.com/api/update/profile`,
       {
         avatar,
         name,
@@ -130,7 +130,7 @@ export const updateProfile = (name, email, avatar) => async (dispatch) => {
 export const followAndUnfollowUser = (id) => async (dispatch) => {
   try {
     dispatch({ type: "followUserRequest" });
-    const { data } = await axios.get(`http://localhost:4000/api/follow/${id}`, {
+    const { data } = await axios.get(`https://social-media-backend-b52h.onrender.com/api/follow/${id}`, {
       withCredentials: true,
     });
     dispatch({ type: "followUserSuccess", payload: data.message });

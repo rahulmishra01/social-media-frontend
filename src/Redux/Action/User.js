@@ -7,7 +7,7 @@ export const LoginUser = (email, password) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      "http://localhost:4000/api/login",
+      "https://social-media-backend-b52h.onrender.com/api/login",
       { email, password },
       {
         Headers: {
@@ -33,7 +33,7 @@ export const LoadUser = () => async (dispatch) => {
   try {
     dispatch({ type: "LoadUserRequest" });
 
-    const { data } = await axios.get("http://localhost:4000/api/me",{
+    const { data } = await axios.get("https://social-media-backend-b52h.onrender.com/api/me",{
         withCredentials: true,
       });
     console.log("🚀 ~ LoadUser ~ data:", data);
@@ -46,7 +46,7 @@ export const LoadUser = () => async (dispatch) => {
 export const getFollowingPosts = () => async (dispatch) => {
   try {
     dispatch({ type: "postOfFollowingRequest" });
-    const { data } = await axios.get("http://localhost:4000/api/posts", {
+    const { data } = await axios.get("https://social-media-backend-b52h.onrender.com/api/posts", {
       withCredentials: true,
     });
     dispatch({
@@ -68,7 +68,7 @@ export const getAllUser =
       dispatch({ type: "allUserRequest" });
 
       const { data } = await axios.get(
-        `http://localhost:4000/api/users?name=${name}`,
+        `https://social-media-backend-b52h.onrender.com/api/users?name=${name}`,
         { withCredentials: true }
       );
       dispatch({ type: "allUserSuccess", payload: data.user });
@@ -85,7 +85,7 @@ export const register = (name, email, avatar, password) => async (dispatch) => {
     dispatch({ type: "RegisterRequest" });
 
     const { data } = await axios.post(
-      "http://localhost:4000/api/register",
+      "https://social-media-backend-b52h.onrender.com/api/register",
       {
         name,
         email,
@@ -106,7 +106,7 @@ export const register = (name, email, avatar, password) => async (dispatch) => {
 export const getMyPosts = () => async (dispatch) => {
   try {
     dispatch({ type: "myPostsRequest" });
-    const { data } = await axios.get("http://localhost:4000/api/my/posts", {
+    const { data } = await axios.get("https://social-media-backend-b52h.onrender.com/api/my/posts", {
       withCredentials: true,
     });
     dispatch({ type: "myPostsSuccess", payload: data.posts });
@@ -118,7 +118,7 @@ export const getMyPosts = () => async (dispatch) => {
 export const LogoutUser = () => async (dispatch) => {
   try {
     dispatch({ type: "LogoutUserRequest" });
-    const { data } = await axios.get("http://localhost:4000/api/logout", {
+    const { data } = await axios.get("https://social-media-backend-b52h.onrender.com/api/logout", {
       withCredentials: true,
     });
     dispatch({ type: "LogoutUserSuccess", payload: data.message });
@@ -135,7 +135,7 @@ export const updatePassword =
     try {
       dispatch({ type: "updatePasswordRequest" });
       const { data } = await axios.put(
-        `http://localhost:4000/api/update/password`,
+        `https://social-media-backend-b52h.onrender.com/api/update/password`,
         {
           oldPassword,
           newPassword,
@@ -155,7 +155,7 @@ export const deleteProfile = () => async (dispatch) => {
   try {
     dispatch({ type: "deleteProfileRequest" });
     const { data } = await axios.delete(
-      `http://localhost:4000/api/delete/me/`,
+      `https://social-media-backend-b52h.onrender.com/api/delete/me/`,
       { withCredentials: true }
     );
     dispatch({ type: "deleteProfileSuccess", payload: data.message });
@@ -172,7 +172,7 @@ export const forgotPassword = (email) => async (dispatch) => {
     dispatch({ type: "ForgotPasswordRequest" });
 
     const { data } = await axios.post(
-      `http://localhost:4000/api/forgot/password`,
+      `https://social-media-backend-b52h.onrender.com/api/forgot/password`,
       { email }
     );
 
@@ -189,7 +189,7 @@ export const resetPassword = (token, password) => async (dispatch) => {
   try {
     dispatch({ type: "ResetPasswordRequest" });
     const { data } = await axios.put(
-      `http://localhost:4000/api/password/reset/${token}`,
+      `https://social-media-backend-b52h.onrender.com/api/password/reset/${token}`,
       {
         password,
       }
@@ -205,7 +205,7 @@ export const getUserPosts = (id) => async (dispatch) => {
     dispatch({ type: "userPostsRequest" });
 
     const { data } = await axios.get(
-      `http://localhost:4000/api/userposts/${id}`,
+      `https://social-media-backend-b52h.onrender.com/api/userposts/${id}`,
       { withCredentials: true }
     );
 
@@ -223,7 +223,7 @@ export const getUserProfile = (id) => async (dispatch) => {
     dispatch({ type: "userProfileRequest" });
 
     const { data } = await axios.get(
-      `http://localhost:4000/api/user/${id}`,
+      `https://social-media-backend-b52h.onrender.com/api/user/${id}`,
       { withCredentials: true }
     );
 
