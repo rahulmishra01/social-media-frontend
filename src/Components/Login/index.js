@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginUser } from "../../Redux/Action/User";
 import "./login.css";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const { error } = useSelector((state) => state.user);
   const { message } = useSelector((state) => state.likePost);
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -21,14 +21,14 @@ const Login = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      alert.success(error);
+      // alert.success(error);
       dispatch({ type: "clearMessage" });
     }
-  }, [alert, error, dispatch, message]);
+  }, [error, dispatch, message]);
 
   return (
     <div className="login">

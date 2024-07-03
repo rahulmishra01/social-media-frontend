@@ -7,11 +7,11 @@ import { Avatar, Button, Dialog, Typography } from "@mui/material";
 import Post from "../Post";
 import { Link } from "react-router-dom";
 import { Delete, Password, Update } from "@mui/icons-material";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import User from "../User";
 import { Box } from "@mui/system";
 const Account = () => {
-  const alert = useAlert();
+  // const alert = useAlert();
   const dispatch = useDispatch();
   const { loading, posts, error } = useSelector((state) => state?.myPosts);
   const { user, loading: userLoading } = useSelector((state) => state?.user);
@@ -31,22 +31,22 @@ const Account = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
     if (likeError) {
-      alert.error(likeError);
+      // alert.error(likeError);
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      alert.success(message);
+      // alert.success(message);
       dispatch({ type: "clearMessage" });
     }
-  }, [likeError, error, message, dispatch, alert]);
+  }, [likeError, error, message, dispatch]);
 
   const logoutHandler = () => {
     dispatch(LogoutUser());
-    alert.success("logout user successfully");
+    // alert.success("logout user successfully");
   };
 
   const deleteProfileHandler = async () => {

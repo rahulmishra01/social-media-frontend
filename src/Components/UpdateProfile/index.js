@@ -1,6 +1,6 @@
 import { Typography, Button, Avatar } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../../Redux/Action/Post";
 import "./updateProfile.css";
@@ -15,7 +15,7 @@ const UpdateProfile = () => {
     error: updateError,
     message,
   } = useSelector((state) => state.myPosts);
-  const alert = useAlert();
+  // const alert = useAlert();
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [avatar, setAvatar] = useState("");
@@ -41,18 +41,18 @@ const UpdateProfile = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      alert.success(message);
+      // alert.success(message);
       dispatch({ type: "clearMessage" });
     }
     if (updateError) {
-      alert.error(updateError);
+      // alert.error(updateError);
       dispatch({ type: "clearErrors" });
     }
-  }, [alert, error, dispatch, message, updateError]);
+  }, [error, dispatch, message, updateError]);
 
   return (
     loading ? <Loader/> : (

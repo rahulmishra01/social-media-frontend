@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUser, getFollowingPosts } from "../../Redux/Action/User";
 import Loader from "../Loader";
 import { Typography } from "@mui/material";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -22,23 +22,23 @@ const Home = () => {
     dispatch(getAllUser());
   }, [dispatch]);
 
-  const alert = useAlert();
+  // const alert = useAlert();
   const { error: likeError, message } = useSelector((state) => state.likePost);
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
     if (likeError) {
-      alert.error(likeError);
+      // alert.error(likeError);
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      alert.success(message);
+      // alert.success(message);
       dispatch({ type: "clearMessage" });
     }
-  }, [likeError, error, message, dispatch, alert]);
+  }, [likeError, error, message, dispatch]);
 
   return loading === true || usersLoading === true ? (
     <Loader />

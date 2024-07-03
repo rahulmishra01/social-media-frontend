@@ -1,6 +1,6 @@
 import { Typography, Button, Avatar } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { register } from "../../Redux/Action/User";
@@ -9,7 +9,7 @@ import "./register.css";
 const Register = () => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.user);;
-  const alert = useAlert();
+  // const alert = useAlert();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -33,10 +33,10 @@ const Register = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
-  }, [alert, error, dispatch]);
+  }, [error, dispatch]);
 
   return (
     <div className="register">

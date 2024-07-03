@@ -1,6 +1,6 @@
 import { Typography, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import "./updatePassword.css";
 import { LoadUser, updatePassword } from "../../Redux/Action/User";
@@ -9,7 +9,7 @@ const UpdateProfile = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const dispatch = useDispatch();
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const { error, loading, message } = useSelector((state) => state.myPosts);
 
@@ -21,14 +21,14 @@ const UpdateProfile = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      alert.success(message);
+      // alert.success(message);
       dispatch({ type: "clearMessage" });
     }
-  }, [alert, error, dispatch, message]);
+  }, [error, dispatch, message]);
 
   return (
     <div className="updatePassword">

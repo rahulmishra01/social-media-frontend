@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 import "./forgotpassword.css";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotPassword } from "../../Redux/Action/User";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
 
   const dispatch = useDispatch();
   const { error, message, loading } = useSelector((state) => state.user);
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -19,14 +19,14 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      alert.success(message);
+      // alert.success(message);
       dispatch({ type: "clearMessage" });
     }
-  }, [alert, error, dispatch, message]);
+  }, [error, dispatch, message]);
 
   return (
     <div className="forgotPassword">

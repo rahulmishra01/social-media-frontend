@@ -1,6 +1,6 @@
 import { Avatar, Button, Dialog, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getUserPosts, getUserProfile } from "../../Redux/Action/User";
@@ -9,7 +9,7 @@ import Post from "../Post";
 import User from "../User";
 
 const UserProfile = () => {
-  const alert = useAlert();
+  // const alert = useAlert();
   const dispatch = useDispatch();
   const { user, error: userError } = useSelector((state) => state.userProfile);
   const { user: me } = useSelector((state) => state.user);
@@ -54,22 +54,22 @@ const UserProfile = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
     if (followError) {
-      alert.error(followError);
+      // alert.error(followError);
       dispatch({ type: "clearErrors" });
     }
     if (userError) {
-      alert.error(userError);
+      // alert.error(userError);
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      alert.success(message);
+      // alert.success(message);
       dispatch({ type: "clearMessage" });
     }
-  }, [error, followError, userError, message, dispatch, alert]);
+  }, [error, followError, userError, message, dispatch]);
 
   return (
     <div className="account">
@@ -128,6 +128,15 @@ const UserProfile = () => {
                   disabled={followLoading}
                 >
                   {following ? "UnFollow" : "Follow"}
+                </Button>
+              )}
+              {myProfile ? null : (
+                <Button
+                  variant="contained"
+                  style={{ background: following ? "#1565C6" : "" }}
+                  disabled={followLoading}
+                >
+                  {following && "Message"}
                 </Button>
               )}
             </>

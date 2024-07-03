@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { resetPassword } from "../../Redux/Action/User";
@@ -8,7 +8,7 @@ import "./resetpassword.css";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
-  const alert = useAlert();
+  // const alert = useAlert();
   const dispatch = useDispatch();
   const params = useParams();
   const { error, message, loading } = useSelector((state) => state.user);
@@ -20,15 +20,15 @@ const ResetPassword = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
 
     if (message) {
-      alert.success(message);
+      // alert.success(message);
       dispatch({ type: "clearMessage" });
     }
-  }, [alert, error, message, dispatch]);
+  }, [error, message, dispatch]);
 
   return (
     <div className="resetPassword">

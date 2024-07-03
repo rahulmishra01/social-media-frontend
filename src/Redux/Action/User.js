@@ -118,7 +118,9 @@ export const getMyPosts = () => async (dispatch) => {
 export const LogoutUser = () => async (dispatch) => {
   try {
     dispatch({ type: "LogoutUserRequest" });
-    const { data } = await axios.get("http://localhost:4000/api/logout");
+    const { data } = await axios.get("http://localhost:4000/api/logout", {
+      withCredentials: true,
+    });
     dispatch({ type: "LogoutUserSuccess", payload: data.message });
   } catch (error) {
     dispatch({

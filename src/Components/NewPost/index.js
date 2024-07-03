@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 import "./post.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createNewPost } from "../../Redux/Action/Post";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import { LoadUser } from "../../Redux/Action/User";
 
 const Post = () => {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState("");
   const dispatch = useDispatch();
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const { loading, error, message } = useSelector((state) => state.likePost);
 
@@ -33,14 +33,14 @@ const Post = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch({ type: "clearErrors" });
     }
     if (message) {
-      alert.success(message);
+      // alert.success(message);
       dispatch({ type: "clearMessage" });
     }
-  }, [error, dispatch, message,alert]);
+  }, [error, dispatch, message]);
 
   return (
     <div className="newPost">
